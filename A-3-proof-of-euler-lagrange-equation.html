@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="First Principles" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Ashwin Reddy" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="First Principles">
+
+<title>First Principles</title>
+
+<link href="libs/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ 
+    messageStyle: "simple",
+    
+
+    showProcessingMessages: true,
+      
+    menuSettings: {
+      zoom: "Hover"
+    },
+    TeX: 
+    {
+      extensions: ["autoload-all.js"] ,
+      Macros: {
+        diff: ["{\\mathrm{d}#1}",1],
+        deriv: ["{\\frac{\\diff{#1}}{\\diff{#2}}}",2],
+        pderiv: ["{\\frac{\\partial{#1}}{\\partial{#2}}}",2],
+        shpderiv: ["{\\partial_{#2}{#1}}",2],
+        integral: ["{\\int{#1\\,\\diff{#2}}}", 2],
+        defint: ["{\\int\\limits_{#1}^{#2}{#3\\,\\diff{#4}}}", 4]
+      }
+    }
+  });
+</script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li class="has-sub"><a href="2-physics.html#physics"><span class="toc-section-number">2</span> Physics</a><ul>
+<li><a href="2-1-electromagnetism.html#electromagnetism"><span class="toc-section-number">2.1</span> Electromagnetism</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="has-sub"><a href="A-math-proofs.html#math-proofs"><span class="toc-section-number">A</span> Math Proofs</a><ul>
+<li><a href="A-1-proof-of-ftc-1.html#proof-of-ftc-1"><span class="toc-section-number">A.1</span> Proof of FTC 1</a></li>
+<li><a href="A-2-first-order-lde.html#first-order-lde"><span class="toc-section-number">A.2</span> First Order LDE</a></li>
+<li><a href="A-3-proof-of-euler-lagrange-equation.html#proof-of-euler-lagrange-equation"><span class="toc-section-number">A.3</span> Proof of Euler-Lagrange Equation</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="proof-of-euler-lagrange-equation" class="section level2">
+<h2><span class="header-section-number">A.3</span> Proof of Euler-Lagrange Equation</h2>
+<p>The Euler-Lagrange equation provides the solution to a classic problem in the calculus of variations. The goal of our problem is to find</p>
+<p><span class="math display" id="eq:el-eqn-problem-statement">\[\begin{equation}
+\arg\min_{x(t)} \mathcal{S} \qquad \mathcal{S} = \mathcal{I}[\mathcal{L}] = \int\limits_{t_0}^{t}{\mathcal{L}(x,\dot{x},t)\,\mathrm{d}t}
+\tag{1.4}
+\end{equation}\]</span></p>
+<p>The usual method of finding critical points by finding the roots of a derivative works only with a function <span class="math inline">\(\mathbb{R} \to \mathbb{R}\)</span>. <span class="math inline">\(\mathcal{I}\)</span>, however, is a <strong>functional</strong> that takes in a function <span class="math inline">\(x(t)\)</span> which represents a path and outputs a real number, the value of the integral from <span class="math inline">\(t_0\)</span> to <span class="math inline">\(t\)</span>.</p>
+<p>Let <span class="math inline">\(x^\star(t)\)</span> be the optimal path, that is, the one that meets our objective of minimizing <span class="math inline">\(\mathcal{S}\)</span>. Then, any arbitrary path <span class="math inline">\(x(t)\)</span> must either be the optimal path or a path that deviates from the optimal path. Let <span class="math inline">\(\epsilon\eta(t)\)</span> be this deviation (<span class="math inline">\(\epsilon\)</span> is just an arbitrary constant which will come into play later). Then,</p>
+<p><span class="math display">\[\begin{align*}
+x(\epsilon) &amp;= x^\star(t) + \epsilon\eta(t) \\
+\dot{x}(\epsilon) &amp;= \dot{x}^\star(t) + \epsilon\dot{\eta}(t)
+\end{align*}\]</span></p>
+<p>Now we’re ready to begin the proof. We must show that <span class="math inline">\(\frac{\mathrm{d}\mathcal S}{\mathrm{d}\epsilon}\)</span> is zero for some type of <span class="math inline">\(x(t)\)</span>. The analogy for a single-variable function is to show that there are points where <span class="math inline">\(y\prime(x)=0\)</span>. Expanding <span class="math inline">\(\mathcal{S}\)</span>,</p>
+<p><span class="math display">\[\begin{align*}
+0 &amp;= \frac{\mathrm{d}}{\mathrm{d}\epsilon}\int\limits_{t_0}^{t}{\mathcal{L}(x,\dot{x},t)\,\mathrm{d}t} \\
+&amp;= \int\limits_{t_0}^{t}{\frac{\mathrm{d}}{\mathrm{d}\epsilon}{\Big[\mathcal{L}(x,\dot{x},t)\Big]}\,\mathrm{d}t} \\
+&amp;= \int\limits_{t_0}^{t}{ \left[\frac{\partial \mathcal{L}}{\partial x}\cancelto{\eta(t)}{\frac{\partial x}{\partial \epsilon}}\; + \frac{\partial \mathcal{L}}{\partial \dot{x}}\cancelto{\dot\eta(t)}{\frac{\partial \dot{x}}{\partial \epsilon}}\qquad \right]\,\mathrm{d}t} \\
+\end{align*}\]</span></p>
+<p><span class="math display">\[
+0 = \int\limits_{t_0}^{t}{ \frac{\partial \mathcal{L}}{\partial x} \eta(t) \,\mathrm{d}t} + {\int\limits_{t_0}^{t}{ \frac{\partial \mathcal{L}}{\partial \dot x} \dot\eta(t) \,\mathrm{d}t}} 
+\]</span></p>
+<p>We’ll set aside the first integral in this equation and integrate the second one with integration by parts. We will choose <span class="math inline">\(u=\shpderiv{\mathcal{L}}{\dot{x}}\)</span> which leaves <span class="math inline">\(\diff{v} = \eta(t)\,\diff{t}\)</span>. Then <span class="math inline">\(v=\eta\)</span> and</p>
+<p><span class="math display">\[
+\diff{u} = \deriv{}{t}\pderiv{\mathcal{L}}{\dot{x}}\diff{t}
+\]</span></p>
+<p><span class="math display">\[\begin{align*}
+{\int\limits_{t_0}^{t}{ \frac{\partial \mathcal{L}}{\partial \dot x} \dot\eta(t) }\diff{t}} &amp;= uv\Big\rvert_{t_0}^{t} - \int\limits_{t_0}^{t}{v\,\diff{u}}\\
+&amp;= \cancelto{0}{\left[\frac{\partial \mathcal{L}}{\partial \dot{x}}\eta(t)\right]_{t_0}^{t}} - \int\limits_{t_0}^{t}{\eta(t)\deriv{}{t}\frac{\partial \mathcal{L}}{\partial \dot{x}}}{t}
+\end{align*}\]</span></p>
+<p>Since <span class="math inline">\(\eta(t)-\eta(t_0)=0\)</span>, we can cancel the first term without knowing anything about the partial derivative. Now we can substitute what’s left of the integral.</p>
+<p><span class="math display">\[\begin{align*}
+0 &amp;= \int\limits_{t_0}^{t}{ \pderiv{\mathcal{L}}{x} \eta(t) }{t} - \int\limits_{t_0}^{t}{\eta(t)\deriv{}{t}\frac{\partial \mathcal{L}}{\partial \dot{x}}}\diff{t} \\
+&amp;= \int\limits_{t_0}^{t}{\left[\pderiv{\mathcal{L}}{x} \eta(t) - \eta(t)\deriv{}{t}\frac{\partial \mathcal{L}}{\partial \dot{x}}\right]}\diff{t} \\
+&amp;= \int\limits_{t_0}^{t}{\left[\eta(t)\left(\pderiv{\mathcal{L}}{x} - \deriv{}{t}\frac{\partial \mathcal{L}}{\partial \dot{x}}\right)\right]}\diff{t}
+\end{align*}\]</span></p>
+<p>Remember, <span class="math inline">\(\eta(x)\)</span> is an arbitrary construct; what we’ve actually found is a constraint: the optimal solution has to obey the partial differential equation in parentheses. And so we yield the Euler-Lagrange equation:</p>
+<p><span class="math display" id="eq:el-eqn">\[\begin{equation}
+\pderiv{\mathcal L}{x} - \deriv{}{t}\frac{\partial \mathcal{L}}{\partial \dot{x}} = 0
+\tag{1.5}
+\end{equation}\]</span></p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-1" class="example"><strong>Example 1.1  (Optimizing Distance)  </strong></span>
+Let’s pick the functional that represents arc length or distance:</p>
+<p><span class="math display">\[
+\mathcal{L}(y, \dot{y}, x) = \sqrt{1+\dot{y}^2}
+\]</span></p>
+<p>Now we apply Euler-Lagrange and see what it yields:</p>
+<p><span class="math display">\[
+0 = \cancelto{0}{\frac{\partial \mathcal{L}}{\partial y}} - \deriv{}{x}\pderiv{\mathcal{L}}{\dot{y}} = - \deriv{}{x} \frac{\dot{y}}{\sqrt{1+\dot{y}^2}}
+\]</span></p>
+<p><span class="math display">\[
+\frac{\dot{y}}{\sqrt{1+\dot{y}^2}} = C \implies \dot{y} = \frac{C}{\sqrt{1-C^2}}
+\]</span></p>
+<p>As expected, <span class="math inline">\(y\)</span> is linear w.r.t. <span class="math inline">\(x\)</span> since straight lines are the most efficient way of getting from one point to another in Euclidean space.</p>
+</div>
+
+
+</div>
+<!-- </div> -->
+<p style="text-align: center;">
+<a href="A-2-first-order-lde.html"><button class="btn btn-default">Previous</button></a>
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
