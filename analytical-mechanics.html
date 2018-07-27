@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="First Principles" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Ashwin Reddy" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="First Principles">
+
+<title>First Principles</title>
+
+<link href="libs/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ 
+    messageStyle: "simple",
+    
+
+    showProcessingMessages: true,
+      
+    menuSettings: {
+      zoom: "Click"
+    },
+    TeX: 
+    {
+      extensions: ["autoload-all.js", "autobold.js", "enclose.js"] ,
+      Macros: {
+        diff: ["{\\mathrm{d}#1}",1],
+        deriv: ["{\\frac{\\diff{#1}}{\\diff{#2}}}",2],
+        pderiv: ["{\\frac{\\partial{#1}}{\\partial{#2}}}",2],
+        shpderiv: ["{\\partial_{#2}{#1}}",2],
+        integral: ["{\\int{#1\\,\\diff{#2}}}", 2],
+        defint: ["{\\int\\limits_{#1}^{#2}{#3\\,\\diff{#4}}}", 4],
+        del: ["{\\vec\\nabla}"],
+        defequals: ["\\equiv"]
+      }
+    }
+  });
+</script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li class="has-sub"><a href="index.html#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="using-this-book.html#using-this-book"><span class="toc-section-number">1.1</span> Using this Book</a></li>
+</ul></li>
+<li class="has-sub"><a href="math.html#math"><span class="toc-section-number">2</span> Math</a><ul>
+<li class="has-sub"><a href="logic.html#logic"><span class="toc-section-number">2.1</span> Logic</a><ul>
+<li><a href="logic.html#propositional-logic"><span class="toc-section-number">2.1.1</span> Propositional Logic</a></li>
+<li><a href="logic.html#predicate-logic"><span class="toc-section-number">2.1.2</span> Predicate Logic</a></li>
+</ul></li>
+<li><a href="axiomatic-systems.html#axiomatic-systems"><span class="toc-section-number">2.2</span> Axiomatic Systems</a></li>
+</ul></li>
+<li class="has-sub"><a href="physics.html#physics"><span class="toc-section-number">3</span> Physics</a><ul>
+<li class="has-sub"><a href="analytical-mechanics.html#analytical-mechanics"><span class="toc-section-number">3.1</span> Analytical Mechanics</a><ul>
+<li><a href="analytical-mechanics.html#lagrangian-mechanics"><span class="toc-section-number">3.1.1</span> Lagrangian Mechanics</a></li>
+</ul></li>
+<li><a href="the-square.html#the-square"><span class="toc-section-number">3.2</span> The Square</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="has-sub"><a href="proofs.html#proofs"><span class="toc-section-number">A</span> (Proofs)</a><ul>
+<li><a href="proof-of-ftc-1.html#proof-of-ftc-1"><span class="toc-section-number">A.1</span> Proof of FTC 1</a></li>
+<li><a href="first-order-lde.html#first-order-lde"><span class="toc-section-number">A.2</span> First Order LDE</a></li>
+<li><a href="proof-of-euler-lagrange-equation.html#proof-of-euler-lagrange-equation"><span class="toc-section-number">A.3</span> Proof of Euler-Lagrange Equation</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="analytical-mechanics" class="section level2">
+<h2><span class="header-section-number">3.1</span> Analytical Mechanics</h2>
+<p><span class="newthought">The Work-Energy Theorem</span> reformulates Newton’s Second Law in a way that makes certain classes of problems easier. You may wonder if there can be reformulations of the Work-Energy Theorem. Indeed, there are a few different variations that each have their own benefits.</p>
+<div id="lagrangian-mechanics" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Lagrangian Mechanics</h3>
+<p>Recall two important facts about energy:</p>
+<ol style="list-style-type: decimal">
+<li>Under certain constraints (namely, picking the system carefully), we can say that energy is conserved</li>
+<li>Potential energies have associated forces that tend to minimize them</li>
+</ol>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-19" class="proposition"><strong>Proposition 1.1  (Lagrangian Proposition )  </strong></span>
+If we know the energy of the system, we can tell how the system will evolve given the two principles above.</p>
+</div>
+
+<p>So the question is: how? Suppose you throw a ball, giving it some initial velocity. What path does it take?</p>
+<p>You’re probably thinking about forces and uniform acceleration motion, but we want something in terms of energy. Remember conservation of energy?</p>
+<p><span class="math display">\[
+U_0 + K_0 = U + K
+\]</span></p>
+<p>The sum of kinetic and potential energy doesn’t change. So maybe we should reformulate this idea in a new way. Let’s fix the endpoints of our path.</p>
+<p>Clearly it is the same path that is taken every time. One would think there’s something unique about this path then.</p>
+<p>Well, what can energy tell us about the path taken? We know that nature doesn’t “like” high energy states (forces are directed to minimize energy). So you might say that nature just wants to minimize energy. But which kind of energy?</p>
+<p>Let’s summarize what we know in an equation.</p>
+<p><span class="math display">\[
+\mathcal{S}(t) = \defint{t_0}{t}{\mathcal{L}(U, K)}{t}
+\]</span></p>
+<p><span class="math display">\[
+x(t) = \arg\min_{x(t)} \mathcal{S}(t)
+\]</span></p>
+<p>We can make our lives a little easier if we write energy in terms of the path. If we assume that mass is constant, then we just have to know velocity to calculate kinetic energy. And potential energy functions by definition only require position. So given position and velocity we can recover the energies later given the constant mass. Now we just have to solve an extrema-finding problem.</p>
+<p>One slight problem: in regular single-variable calculus, a function takes in a real number and spits out a real number. Thus, to find an extrema, you look for a place in the function where a small first-order change (i.e. <span class="math inline">\(f{x}\)</span>) results in no output change (i.e. <span class="math inline">\(\diff{y}\)</span> is zero).</p>
+<p>But here, we don’t have a function that takes in a real number. We have a function that takes in a path…which is a function. A function that takes in a function and outputs a real number is called a <strong>functional</strong>.<label for="tufte-sn-5" class="margin-toggle sidenote-number">5</label><input type="checkbox" id="tufte-sn-5" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">5</span> The branch of mathematics that deals with optimizing functionals is known as the <strong>calculus of variations</strong></span> So we now have to look in the path-space for a place where a first-order change in the path results in no output change (i.e. the best path is one where no simple modifications could be made to improve the performance given the reward or cost of the functional).</p>
+<p>To make a long story short, the optimal path follows this condition, known as the <a href="proof-of-euler-lagrange-equation.html#proof-of-euler-lagrange-equation">Euler-Lagrange equation</a> (it actually works for the problem of finding maxima/minima of any arbitrary <span class="math inline">\(\mathcal{L}\)</span>):</p>
+<p><span class="math display">\[
+\pderiv{\mathcal L}{x} = \deriv{}{t}\pderiv{\mathcal L}{\dot x}
+\]</span></p>
+
+<div class="proof">
+<p> <span class="proof"><em>Proof</em> (Lagrangian Proof by Analogy). </span> </p>
+<ul>
+<li><p>Energy is a result (or a restatement) of Newton’s Second Law, which predicts the path of objects</p></li>
+<li><p>We have a mystery quantity based on energy that gives us the path if we know the start and endpoints</p></li>
+<li><p>We should set Newton’s Second Law as the currently working theory and then show that our new theory gives the same results</p></li>
+<li><p>Which means we should show that for a specific <span class="math inline">\(\mathcal L\)</span>, Euler-Lagrange equation is the same as Newton’s Second Law</p></li>
+</ul>
+<p>That right hand term looks like it would be a force (if <span class="math inline">\(\mathcal L\)</span> has a potential energy term, differentiation w.r.t position yields force) and the right hand side…</p>
+<p><span class="math display">\[
+\deriv{}{t}\deriv{K}{v} = \deriv{}{t}\left[\frac{m}{2}\pderiv{v^2}{v}\right] = \deriv{}{t}[mv] = ma
+\]</span></p>
+<p>So we recovered <span class="math inline">\(F = ma\)</span> if <span class="math inline">\(\mathcal L = K - U\)</span>.</p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="physics.html"><button class="btn btn-default">Previous</button></a>
+<a href="the-square.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="First Principles" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Ashwin Reddy" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="First Principles">
+
+<title>First Principles</title>
+
+<link href="libs/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ 
+    messageStyle: "simple",
+    
+
+    showProcessingMessages: true,
+      
+    menuSettings: {
+      zoom: "Click"
+    },
+    TeX: 
+    {
+      extensions: ["autoload-all.js", "autobold.js", "enclose.js"] ,
+      Macros: {
+        diff: ["{\\mathrm{d}#1}",1],
+        deriv: ["{\\frac{\\diff{#1}}{\\diff{#2}}}",2],
+        pderiv: ["{\\frac{\\partial{#1}}{\\partial{#2}}}",2],
+        shpderiv: ["{\\partial_{#2}{#1}}",2],
+        integral: ["{\\int{#1\\,\\diff{#2}}}", 2],
+        defint: ["{\\int\\limits_{#1}^{#2}{#3\\,\\diff{#4}}}", 4],
+        del: ["{\\vec\\nabla}"],
+        defequals: ["\\equiv"]
+      }
+    }
+  });
+</script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li class="has-sub"><a href="index.html#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="using-this-book.html#using-this-book"><span class="toc-section-number">1.1</span> Using this Book</a></li>
+</ul></li>
+<li class="has-sub"><a href="math.html#math"><span class="toc-section-number">2</span> Math</a><ul>
+<li class="has-sub"><a href="logic.html#logic"><span class="toc-section-number">2.1</span> Logic</a><ul>
+<li><a href="logic.html#propositional-logic"><span class="toc-section-number">2.1.1</span> Propositional Logic</a></li>
+<li><a href="logic.html#predicate-logic"><span class="toc-section-number">2.1.2</span> Predicate Logic</a></li>
+</ul></li>
+<li><a href="axiomatic-systems.html#axiomatic-systems"><span class="toc-section-number">2.2</span> Axiomatic Systems</a></li>
+</ul></li>
+<li class="has-sub"><a href="physics.html#physics"><span class="toc-section-number">3</span> Physics</a><ul>
+<li class="has-sub"><a href="analytical-mechanics.html#analytical-mechanics"><span class="toc-section-number">3.1</span> Analytical Mechanics</a><ul>
+<li><a href="analytical-mechanics.html#lagrangian-mechanics"><span class="toc-section-number">3.1.1</span> Lagrangian Mechanics</a></li>
+</ul></li>
+<li><a href="the-square.html#the-square"><span class="toc-section-number">3.2</span> The Square</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="has-sub"><a href="proofs.html#proofs"><span class="toc-section-number">A</span> (Proofs)</a><ul>
+<li><a href="proof-of-ftc-1.html#proof-of-ftc-1"><span class="toc-section-number">A.1</span> Proof of FTC 1</a></li>
+<li><a href="first-order-lde.html#first-order-lde"><span class="toc-section-number">A.2</span> First Order LDE</a></li>
+<li><a href="proof-of-euler-lagrange-equation.html#proof-of-euler-lagrange-equation"><span class="toc-section-number">A.3</span> Proof of Euler-Lagrange Equation</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="axiomatic-systems" class="section level2">
+<h2><span class="header-section-number">2.2</span> Axiomatic Systems</h2>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-12" class="definition"><strong>Definition 1.5  (Axiomatic System)  </strong></span>
+An axiomatic system is a finite sequence of propositions or propositional schemes <span class="math inline">\(a_1, a_2, \dots, a_N\)</span>, which are called axioms.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-13" class="definition"><strong>Definition 1.6  (Definition of a Proof)  </strong></span>
+A proof of a proposition <span class="math inline">\(p\)</span> within an axiomatic system <span class="math inline">\(a_1,a_2,\dots, a_N\)</span> is a finite sequence of propositions <span class="math inline">\(q_1, q_2, \dots, q_M\)</span> where <span class="math inline">\(q_M \iff p\)</span> such that for any <span class="math inline">\(1\leq j \leq M\)</span> one of the following is true:</p>
+<ul>
+<li><span class="math inline">\(q_j\)</span> is a proposition from the list of axioms</li>
+<li><span class="math inline">\(q_j\)</span> is a a tautology (a proposition that is always true independent of the propositions of which it is made).<label for="tufte-sn-4" class="margin-toggle sidenote-number">4</label><input type="checkbox" id="tufte-sn-4" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">4</span> e.g. the proposition <span class="math inline">\(p \lor \neg p\)</span> is always <code>true</code>, independent of what <span class="math inline">\(p\)</span> actually is.</span></li>
+<li><span class="math inline">\(q_j\)</span> can be deduced from two previous steps <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span>; <span class="math inline">\(\exists\, 1 \leq m , n \leq j : q_M \land q_N \implies q_j\)</span>.</li>
+</ul>
+<p>In sum, every step of a proof must be an axiom, a tautology, or a deduction from two previous steps.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Remark. </em></span> 
+If <span class="math inline">\(p\)</span> can be proven from an axiomatic system <span class="math inline">\(a_1, \dots, a_N\)</span>, we often write <span class="math display">\[a_1, \dots, a_N \vdash p. \]</span> This definition allows us to easily recognize a proof.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Remark. </em></span> 
+Tautologies can be pulled from the axioms without impairing the power of the axiomatic system. An extreme case of this property is found for the axiomatic system of propositional logic: the empty sequence.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-16" class="definition"><strong>Definition 1.7  (Consistency)  </strong></span>
+An axiomatic system is said to be consistent if there exists a proposition <span class="math inline">\(q\)</span> which cannot be proven from the axioms.</p>
+</div>
+
+<p>Why do we define such a system to be consistent? Consider an axiomatic system containing both the propositions <span class="math inline">\(s\)</span> and <span class="math inline">\(\neg s\)</span>. Then you could pull in a tautology <span class="math inline">\(s \land \neg s \implies q\)</span>, which would actually work out by <em>ex falso quodlibet</em> since <span class="math inline">\(s \land \neg s\)</span> is always <code>false</code>.</p>
+
+<div class="proof">
+<p> <span class="proof"><em>Proof</em> (Propositional Logic is Consistent). </span> 
+As follows:</p>
+<ul>
+<li>It suffices to show that there exists a proposition that cannot be proven within propositional logic.</li>
+<li>Since propositional logic has no axioms, every step of the proof can only invoke tautologies.</li>
+<li>But then you cannot prove, for example, <span class="math inline">\(q \land \neg q\)</span> since <span class="math inline">\(q\)</span> is a proposition that is not necessarily a tautology.</li>
+</ul>
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-18" class="theorem"><strong>Theorem 1.2  (Gödel)  </strong></span>
+Any axiomatic system that is powerful enough to encode the elementary arithmetic of natural numbers is either inconsistent or contains a proposition that can neither be proven nor disproven. To prove this, Gödel assigned a number to every mathematical statement and used a <a href="https://en.wikipedia.org/wiki/Barber_paradox">Barber Paradox</a>-type argument to identify a proposition neither provable nor disprovable.</p>
+</div>
+
+
+</div>
+<!-- </div> -->
+<p style="text-align: center;">
+<a href="logic.html"><button class="btn btn-default">Previous</button></a>
+<a href="physics.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>

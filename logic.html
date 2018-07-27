@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="First Principles" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Ashwin Reddy" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="First Principles">
+
+<title>First Principles</title>
+
+<link href="libs/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ 
+    messageStyle: "simple",
+    
+
+    showProcessingMessages: true,
+      
+    menuSettings: {
+      zoom: "Click"
+    },
+    TeX: 
+    {
+      extensions: ["autoload-all.js", "autobold.js", "enclose.js"] ,
+      Macros: {
+        diff: ["{\\mathrm{d}#1}",1],
+        deriv: ["{\\frac{\\diff{#1}}{\\diff{#2}}}",2],
+        pderiv: ["{\\frac{\\partial{#1}}{\\partial{#2}}}",2],
+        shpderiv: ["{\\partial_{#2}{#1}}",2],
+        integral: ["{\\int{#1\\,\\diff{#2}}}", 2],
+        defint: ["{\\int\\limits_{#1}^{#2}{#3\\,\\diff{#4}}}", 4],
+        del: ["{\\vec\\nabla}"],
+        defequals: ["\\equiv"]
+      }
+    }
+  });
+</script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li class="has-sub"><a href="index.html#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="using-this-book.html#using-this-book"><span class="toc-section-number">1.1</span> Using this Book</a></li>
+</ul></li>
+<li class="has-sub"><a href="math.html#math"><span class="toc-section-number">2</span> Math</a><ul>
+<li class="has-sub"><a href="logic.html#logic"><span class="toc-section-number">2.1</span> Logic</a><ul>
+<li><a href="logic.html#propositional-logic"><span class="toc-section-number">2.1.1</span> Propositional Logic</a></li>
+<li><a href="logic.html#predicate-logic"><span class="toc-section-number">2.1.2</span> Predicate Logic</a></li>
+</ul></li>
+<li><a href="axiomatic-systems.html#axiomatic-systems"><span class="toc-section-number">2.2</span> Axiomatic Systems</a></li>
+</ul></li>
+<li class="has-sub"><a href="physics.html#physics"><span class="toc-section-number">3</span> Physics</a><ul>
+<li class="has-sub"><a href="analytical-mechanics.html#analytical-mechanics"><span class="toc-section-number">3.1</span> Analytical Mechanics</a><ul>
+<li><a href="analytical-mechanics.html#lagrangian-mechanics"><span class="toc-section-number">3.1.1</span> Lagrangian Mechanics</a></li>
+</ul></li>
+<li><a href="the-square.html#the-square"><span class="toc-section-number">3.2</span> The Square</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="has-sub"><a href="proofs.html#proofs"><span class="toc-section-number">A</span> (Proofs)</a><ul>
+<li><a href="proof-of-ftc-1.html#proof-of-ftc-1"><span class="toc-section-number">A.1</span> Proof of FTC 1</a></li>
+<li><a href="first-order-lde.html#first-order-lde"><span class="toc-section-number">A.2</span> First Order LDE</a></li>
+<li><a href="proof-of-euler-lagrange-equation.html#proof-of-euler-lagrange-equation"><span class="toc-section-number">A.3</span> Proof of Euler-Lagrange Equation</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="logic" class="section level2">
+<h2><span class="header-section-number">2.1</span> Logic</h2>
+<div id="propositional-logic" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Propositional Logic</h3>
+<p>Adapted from <span class="citation">Schuller (<label for="tufte-mn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="tufte-mn-1" class="margin-toggle">2015<span class="marginnote">Schuller, Dr. Frederic P. 2015. “Introduction/Logic of Propositions and Predicates- 01 - Frederic Schuller.” Lectures on the Geometric Anatomy of Theoretical Physics. 2015. <a href="https://youtu.be/V49i_LM8B0E" class="uri">https://youtu.be/V49i_LM8B0E</a>.</span>)</span>.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-1" class="definition"><strong>Definition 1.1  (Proposition)  </strong></span>
+A proposition is a variable that can only take the value <code>true</code> or <code>false</code>.</p>
+</div>
+
+<p>We can build propositions using logical operators. We will start by looking at the unary operators, which take one proposition and return one proposition. We can enumerate the 4 unary operators:</p>
+<ul>
+<li>A negation operator that inverts its input</li>
+<li>An identity operator that leaves the input unchanged</li>
+<li>A logical <code>true</code> operator that returns <code>true</code> regardless of the input</li>
+<li>A logical <code>false</code> operator that returns <code>false</code> regardless of the input</li>
+</ul>
+<p>As a concrete example, a truth table will help us organize the various operators:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\(p\)</span></th>
+<th align="center"><span class="math inline">\(\text{id }p\)</span> (identity)</th>
+<th align="center"><span class="math inline">\(\neg p\)</span> (negate)</th>
+<th align="center">T (true)</th>
+<th align="center">F (false)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>true</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>false</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>false</code></td>
+</tr>
+<tr class="even">
+<td align="center"><code>false</code></td>
+<td align="center"><code>false</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<p>Next we have the binary operators.<label for="tufte-sn-1" class="margin-toggle sidenote-number">1</label><input type="checkbox" id="tufte-sn-1" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">1</span> There are <span class="math inline">\(4\times 4 = 16\)</span> total binary operators given that there are 4 unary operators.</span> Three basic ones are listed in the truth table below.</p>
+<ul>
+<li>The AND operator returns true if both of its inputs are <code>true</code></li>
+<li>The OR operator returns true if any of its inputs are <code>true</code></li>
+<li>The XOR (exclusive or) operator returns true if only one of its inputs is <code>true</code></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\((p,q)\)</span></th>
+<th align="center"><span class="math inline">\(p \land q\)</span> (AND)</th>
+<th align="center"><span class="math inline">\(p \lor q\)</span> (OR)</th>
+<th align="center"><span class="math inline">\(p \veebar q\)</span> (XOR)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>(true, true)</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>false</code></td>
+</tr>
+<tr class="even">
+<td align="center"><code>(true, false)</code></td>
+<td align="center"><code>false</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr class="odd">
+<td align="center"><code>(false, true)</code></td>
+<td align="center"><code>false</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr class="even">
+<td align="center"><code>(false, false)</code></td>
+<td align="center"><code>false</code></td>
+<td align="center"><code>false</code></td>
+<td align="center"><code>false</code></td>
+</tr>
+</tbody>
+</table>
+<p>Next, we have a special binary operation, which we shall call “implication.” Here is its truth table.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\((p,q)\)</span></th>
+<th align="center"><span class="math inline">\(p \implies q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>(true, true)</code></td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr class="even">
+<td align="center"><code>(true, false)</code></td>
+<td align="center"><code>false</code></td>
+</tr>
+<tr class="odd">
+<td align="center"><code>(false, true)</code></td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr class="even">
+<td align="center"><code>(false, false)</code></td>
+<td align="center"><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p>An implication allows us to take one proposition and use it as a stepping stone to another proposition. So why should an implication be true if its premise <span class="math inline">\(p\)</span> is false? We refer to the idea from the Latin phrase <em>ex falso quodlibet</em> (from falsehood anything follows). If you use a false proposition to start, you can claim anything.</p>
+<p>Alright, one last important binary operation: equivalency. If <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> have the same value, equivalency returns <code>true</code>, otherwise <code>false</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\((p,q)\)</span></th>
+<th align="center"><span class="math inline">\(p \iff q\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>(true, true)</code></td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr class="even">
+<td align="center"><code>(true, false)</code></td>
+<td align="center"><code>false</code></td>
+</tr>
+<tr class="odd">
+<td align="center"><code>(false, true)</code></td>
+<td align="center"><code>false</code></td>
+</tr>
+<tr class="even">
+<td align="center"><code>(false, false)</code></td>
+<td align="center"><code>true</code></td>
+</tr>
+</tbody>
+</table>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-2" class="theorem"><strong>Theorem 1.1  </strong></span>
+<span class="math display">\[
+(p \implies q) \iff (\neg q \implies \neg p)
+\]</span></p>
+<blockquote>
+<p>If <span class="math inline">\(p\)</span> implies <span class="math inline">\(q\)</span>, then if <span class="math inline">\(q\)</span> is false that implies <span class="math inline">\(p\)</span> is false</p>
+</blockquote>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> 
+We construct a truth table.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><span class="math inline">\((p,q)\)</span></th>
+<th align="center"><span class="math inline">\(\neg p\)</span></th>
+<th align="center"><span class="math inline">\(\neg q\)</span></th>
+<th align="center"><span class="math inline">\(p \implies q\)</span></th>
+<th align="center"><span class="math inline">\(\neg q \implies \neg p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>(true, true)</code></td>
+<td align="center"><code>false</code></td>
+<td align="center"><code>false</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr class="even">
+<td align="center"><code>(true, false)</code></td>
+<td align="center"><code>false</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>false</code></td>
+<td align="center"><code>false</code></td>
+</tr>
+<tr class="odd">
+<td align="center"><code>(false, true)</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>false</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr class="even">
+<td align="center"><code>(false, false)</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>true</code></td>
+<td align="center"><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p>The last two columns are equivalent, so Q.E.D.</p>
+</div>
+
+
+<div class="corollary">
+<p><span id="cor:Contradiction" class="corollary"><strong>Corollary 1.1  </strong></span>This theorem enables us to use proof by contradiction.</p>
+<ol style="list-style-type: decimal">
+<li>Goal is to show that if <span class="math inline">\(p\)</span> is true, <span class="math inline">\(q\)</span> is true.</li>
+<li>Assume that <span class="math inline">\(q\)</span> is not true.</li>
+<li>Show that this leads to a contradiction.</li>
+<li>Therefore, <span class="math inline">\(q\)</span> was actually true.</li>
+</ol>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Remark</em> (Order of Operations). </span> 
+From highest to lowest precedence:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\neg\)</span></li>
+<li><span class="math inline">\(\land\)</span></li>
+<li><span class="math inline">\(\lor\)</span></li>
+<li><span class="math inline">\(\implies\)</span></li>
+<li><span class="math inline">\(\iff\)</span></li>
+</ol>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Remark</em> (Functional Completeness). </span> 
+All higher order operators can be constructed using a NAND<label for="tufte-sn-2" class="margin-toggle sidenote-number">2</label><input type="checkbox" id="tufte-sn-2" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">2</span> Negation of the AND operator</span> gate.</p>
+</div>
+
+</div>
+<div id="predicate-logic" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Predicate Logic</h3>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-6" class="definition"><strong>Definition 1.2  (Predicate)  </strong></span>
+A predicate is a <a href="logic.html#propositional-logic">proposition</a>-valued function of some variable(s).</p>
+</div>
+
+<p>A predicate of one variable can be converted into a proposition.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-7" class="definition"><strong>Definition 1.3  (Universal Quantification)  </strong></span>
+The proposition <span class="math inline">\(\forall x : P(x)\)</span> (which may be read “for all <span class="math inline">\(x\)</span>, <span class="math inline">\(P(x)\)</span> is <code>true</code>”) is defined to be <code>true</code> if <span class="math inline">\(P(x)\)</span> is true independently of <span class="math inline">\(x\)</span>.</p>
+</div>
+
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-8" class="definition"><strong>Definition 1.4  (Existential Quantification)  </strong></span>
+The quantifier <span class="math inline">\(\exists\)</span> can be used in the context <span class="math inline">\(\exists x : P(x)\)</span> (which may be read “there exists an<label for="tufte-sn-3" class="margin-toggle sidenote-number">3</label><input type="checkbox" id="tufte-sn-3" class="margin-toggle"><span class="sidenote"><span class="sidenote-number">3</span> by which we mean &quot;at least one&quot;</span> <span class="math inline">\(x\)</span> such that <span class="math inline">\(P(x)\)</span> is <code>true</code>”). Building this definition from the tools we have,</p>
+<p><span class="math display">\[
+\exists x : P(x) \iff \neg \left(\forall x : \neg P(x) \right)
+\]</span></p>
+<blockquote>
+<p>The existence of an <span class="math inline">\(x\)</span> such that <span class="math inline">\(P(x)\)</span> is true means that it is not true that that <span class="math inline">\(P(x)\)</span> is false for all <span class="math inline">\(x\)</span> .</p>
+</blockquote>
+</div>
+
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-9" class="corollary"><strong>Corollary 1.2  </strong></span>
+<span class="math display">\[
+\forall x : \neg P(x) \iff \neg \left( \exists x: P(x) \right)
+\]</span></p>
+<blockquote>
+<p>If <span class="math inline">\(P(x)\)</span> is false for all <span class="math inline">\(x\)</span>, then there does not exist an <span class="math inline">\(x\)</span> such that <span class="math inline">\(P(x)\)</span> is true.&quot;</p>
+</blockquote>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-10" class="example"><strong>Example 1.1  (Quantification for Predicates of More than One Variable)  </strong></span>
+Such a quantification looks like</p>
+<p><span class="math display">\[
+Q(\overbrace{y}^{\text{free variable}}) \iff \forall \underbrace{x}_{\text{bound variable}} : P(x,y)
+\]</span></p>
+<p>The term <span class="math inline">\(x\)</span> is bound to the expression in the sense that it simply stands as an index while <span class="math inline">\(y\)</span> is a free variable since we can choose what to input for it.</p>
+</div>
+
+
+<div class="remark">
+<p> <span class="remark"><em>Remark</em> (Order of Quantification Matters). </span> 
+The proposition <span class="math inline">\(\forall x : \exists y: P(x,y)\)</span> is generically different from <span class="math inline">\(\forall y : \exists x: P(x,y)\)</span>.</p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="math.html"><button class="btn btn-default">Previous</button></a>
+<a href="axiomatic-systems.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="First Principles" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Ashwin Reddy" />
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="First Principles">
+
+<title>First Principles</title>
+
+<link href="libs/tufte-css-2015.12.29/tufte-fonts.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-background.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte-italics.css" rel="stylesheet" />
+<link href="libs/tufte-css-2015.12.29/tufte.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ 
+    messageStyle: "simple",
+    
+
+    showProcessingMessages: true,
+      
+    menuSettings: {
+      zoom: "Click"
+    },
+    TeX: 
+    {
+      extensions: ["autoload-all.js", "autobold.js", "enclose.js"] ,
+      Macros: {
+        diff: ["{\\mathrm{d}#1}",1],
+        deriv: ["{\\frac{\\diff{#1}}{\\diff{#2}}}",2],
+        pderiv: ["{\\frac{\\partial{#1}}{\\partial{#2}}}",2],
+        shpderiv: ["{\\partial_{#2}{#1}}",2],
+        integral: ["{\\int{#1\\,\\diff{#2}}}", 2],
+        defint: ["{\\int\\limits_{#1}^{#2}{#3\\,\\diff{#4}}}", 4],
+        del: ["{\\vec\\nabla}"],
+        defequals: ["\\equiv"]
+      }
+    }
+  });
+</script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li class="has-sub"><a href="index.html#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="using-this-book.html#using-this-book"><span class="toc-section-number">1.1</span> Using this Book</a></li>
+</ul></li>
+<li class="has-sub"><a href="math.html#math"><span class="toc-section-number">2</span> Math</a><ul>
+<li class="has-sub"><a href="logic.html#logic"><span class="toc-section-number">2.1</span> Logic</a><ul>
+<li><a href="logic.html#propositional-logic"><span class="toc-section-number">2.1.1</span> Propositional Logic</a></li>
+<li><a href="logic.html#predicate-logic"><span class="toc-section-number">2.1.2</span> Predicate Logic</a></li>
+</ul></li>
+<li><a href="axiomatic-systems.html#axiomatic-systems"><span class="toc-section-number">2.2</span> Axiomatic Systems</a></li>
+</ul></li>
+<li class="has-sub"><a href="physics.html#physics"><span class="toc-section-number">3</span> Physics</a><ul>
+<li class="has-sub"><a href="analytical-mechanics.html#analytical-mechanics"><span class="toc-section-number">3.1</span> Analytical Mechanics</a><ul>
+<li><a href="analytical-mechanics.html#lagrangian-mechanics"><span class="toc-section-number">3.1.1</span> Lagrangian Mechanics</a></li>
+</ul></li>
+<li><a href="the-square.html#the-square"><span class="toc-section-number">3.2</span> The Square</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="has-sub"><a href="proofs.html#proofs"><span class="toc-section-number">A</span> (Proofs)</a><ul>
+<li><a href="proof-of-ftc-1.html#proof-of-ftc-1"><span class="toc-section-number">A.1</span> Proof of FTC 1</a></li>
+<li><a href="first-order-lde.html#first-order-lde"><span class="toc-section-number">A.2</span> First Order LDE</a></li>
+<li><a href="proof-of-euler-lagrange-equation.html#proof-of-euler-lagrange-equation"><span class="toc-section-number">A.3</span> Proof of Euler-Lagrange Equation</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="the-square" class="section level2">
+<h2><span class="header-section-number">3.2</span> The Square</h2>
+<p><span class="newthought">The square</span> is a useful visual way of describing the relationship between the electric force, field, potential energy, and potential.</p>
+<p><span class="math display" id="eq:thesquare">\[\begin{equation}
+\begin{CD}
+\vec{F} @&gt;\div q &gt;&gt; \vec{E} \\
+@AA-\vec\nabla{}A  @VV -\int{\cdot\mathrm{d}\vec{r}} V \\
+U @&lt;\times q&lt;&lt; V
+\end{CD}
+\tag{1.1}
+\end{equation}\]</span></p>
+<table>
+<colgroup>
+<col width="2%" />
+<col width="16%" />
+<col width="18%" />
+<col width="26%" />
+<col width="38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Force</th>
+<th align="center">Field</th>
+<th align="center">Potential</th>
+<th align="center">Potential Energy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Object Type</td>
+<td align="center"><code>Vector</code></td>
+<td align="center"><code>Vector</code></td>
+<td align="center"><code>Scalar</code></td>
+<td align="center"><code>Scalar</code></td>
+</tr>
+<tr class="even">
+<td>SI Units</td>
+<td align="center">Newtons</td>
+<td align="center">Newton / Coulomb</td>
+<td align="center">Volt</td>
+<td align="center">Joule / Coulomb</td>
+</tr>
+<tr class="odd">
+<td>Represents</td>
+<td align="center">Pull between two charged particles</td>
+<td align="center">The possibility of a force created by some charge</td>
+<td align="center">The possibility of energy created by some charge</td>
+<td align="center">The energy required to set up a system of charges</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<!-- </div> -->
+
+
+
+<p style="text-align: center;">
+<a href="analytical-mechanics.html"><button class="btn btn-default">Previous</button></a>
+<a href="proofs.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>
